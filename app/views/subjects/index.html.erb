@@ -1,0 +1,8 @@
+<h3>Your Subjects</h3>
+<div>
+  <% @subjects.each do |subject| %>
+    <div><%= link_to "#{subject.name}", subject_path(subject) %></div>
+  <% end %>
+</div>
+
+<%= render "form" %>

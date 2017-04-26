@@ -1,0 +1,10 @@
+<br>
+<%= form_tag cards_path do %>
+  <label>Front:</label><br>
+  <%= text_field_tag :front %><br>
+  <label>Back:</label><br>
+  <%= text_field_tag :back %><br>
+  <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+
+  <%= submit_tag "Add Card to Subject" %>
+<% end %>
