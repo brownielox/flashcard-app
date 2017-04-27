@@ -1,1 +1,6 @@
-<%= render partial: 'form', locals: {card: @card} %>
+<h3>Your Subjects</h3>
+<div>
+  <% @cards.each do |subject| %>
+    <div><%= link_to "#{subject.subject}", card_path(subject) %></div>
+  <% end %>
+</div>

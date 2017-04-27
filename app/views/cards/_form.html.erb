@@ -1,10 +1,15 @@
 <br>
-<%= form_for card do |f| %>
+<%= form_tag cards_path do %>
 
-  <%= f.label :front %>
-  <%= f.text_field :front %>
-  <%= f.label :back %>
-  <%= f.text_field :back %>
+<%= collection_select(:card, :subject, Card.all, :id, :subject, {prompt: 'Select Subject'}) %>
+<br>
+<label>Front:</label><br>
+<%= text_field_tag :front %><br>
 
-  <%= submit_tag "Add Card to ******" %>
+<label>Back:</label><br>
+<%= text_field_tag :back %><br>
+
+<%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+
+<%= submit_tag "Submit Card" %>
 <% end %>

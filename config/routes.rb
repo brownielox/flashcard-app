@@ -1,9 +1,8 @@
 Rails.application.routes.draw do
-  resources :subjects
   resources :cards
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   get '/about', to: 'static#about'
-  get '/new', to: 'subjects#new'
+  get '/new', to: 'cards#new'
 end
 
 

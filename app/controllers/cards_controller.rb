@@ -1,7 +1,7 @@
 class CardsController < ApplicationController
 
   def index
-    @card = Card.all
+    @cards = Card.all
   end
 
   def new
@@ -14,10 +14,14 @@ class CardsController < ApplicationController
 
   def create
     @card = Card.new
+    @card.subject = params[:subject]
     @card.front = params[:front]
     @card.back = params[:back]
-    @card.save
-    redirect_to subjects_path
+    if @card.save
+      redirect_to new_path
+    else
+      puts "hello world"
+    end
   end
 
 end
