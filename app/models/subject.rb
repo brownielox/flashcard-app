@@ -1,4 +1,4 @@
 class Subject < ActiveRecord::Base
-  has_many :cards
-  has_many :users, through: :cards
+  has_many :subject_cards
+  has_many :cards, through: :subject_cards
 end

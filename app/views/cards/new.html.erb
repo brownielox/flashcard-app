@@ -1,16 +1,4 @@
-<br>
-<br>
-<%= form_for(@subject) do |f| %>
-  <%= f.label :name %>
-  <%= f.text_field :name %>
-<br>
-<br>
 
-  <label>Card front:</label><br>
-  <textarea id="card_front" name="card[front]"></textarea><br>
 
-  <label>Card back:</label><br>
-  <textarea id="card_back" name="card[back]"></textarea><br>
-
-<%= f.submit %>
-<% end %>
+<h1>New zone</h1>
+<%= render partial: 'form', locals: {card: @card} %>

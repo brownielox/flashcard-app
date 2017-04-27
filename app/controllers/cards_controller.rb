@@ -8,6 +8,10 @@ class CardsController < ApplicationController
     @card = Card.new
   end
 
+  def show
+    @card = Card.find_by_id(params[:id])
+  end
+
   def create
     @card = Card.new
     @card.front = params[:front]
