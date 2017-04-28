@@ -14,14 +14,11 @@ class CardsController < ApplicationController
 
   def create
     @card = Card.new
-    @card.subject = params[:subject]
     @card.front = params[:front]
     @card.back = params[:back]
-    if @card.save
-      redirect_to new_path
-    else
-      puts "hello world"
-    end
+    @card.subject_id = params[:subject_id]
+    @card.save
+    redirect_to cards_new_path
   end
 
 end

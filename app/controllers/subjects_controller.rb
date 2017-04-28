@@ -12,7 +12,7 @@ class SubjectsController < ApplicationController
     @subject = Subject.new
     @subject.name = params[:name]
     @subject.save
-    redirect_to subjects_path
+    redirect_to cards_new_path
   end
 
   def show
