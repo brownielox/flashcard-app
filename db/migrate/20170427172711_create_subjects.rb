@@ -3,5 +3,8 @@ class CreateSubjects < ActiveRecord::Migration[5.0]
     create_table :subjects do |t|
       t.string :name
     end
+
+
+    add_index :cards, :subject_id
   end
 end

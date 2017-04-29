@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   get '/cards/new', to: 'cards#new'
   get '/subjects/new', to: 'subjects#new'
   post '/subjects/new', to: 'subjects#new'
+  post '/cards/new', to: 'cards#new'
 end
 
 

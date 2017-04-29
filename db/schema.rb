@@ -16,6 +16,7 @@ ActiveRecord::Schema.define(version: 20170427213403) do
     t.string  "front"
     t.string  "back"
     t.integer "subject_id"
+    t.index ["subject_id"], name: "index_cards_on_subject_id"
   end
 
   create_table "subjects", force: :cascade do |t|

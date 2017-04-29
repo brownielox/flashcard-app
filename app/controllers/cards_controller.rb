@@ -13,12 +13,13 @@ class CardsController < ApplicationController
   end
 
   def create
-    @card = Card.new
-    @card.front = params[:front]
-    @card.back = params[:back]
-    @card.subject_id = params[:subject_id]
-    @card.save
-    redirect_to cards_new_path
+    Card.create(post_params)
+  end
+
+  private
+
+  def post_params
+    params.require(:card).permit(:subject_name, :front, :back)
   end
 
 end
