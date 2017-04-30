@@ -14,6 +14,7 @@ class CardsController < ApplicationController
 
   def create
     Card.create(post_params)
+    redirect_to cards_new_path
   end
 
   private

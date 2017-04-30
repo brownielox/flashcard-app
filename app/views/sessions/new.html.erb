@@ -1,0 +1,9 @@
+<h2>Login to Flash/Card!</h2>
+<%= form_tag ({controller: 'sessions', action: 'create', method: 'post'}) do %>
+  <input name=name>
+  <input type=submit value='login'>
+  <br>
+  <br>
+  <input name=password>
+  <input type=submit value='password'>
+<% end %>

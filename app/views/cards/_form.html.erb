@@ -1,11 +1,19 @@
-<h2>Add a card</h2>
-<br>
-<%= form_tag subjects_path do %>
+<h2>Make a new card</h2>
+<%= form_for @card do |f| %>
+  <%= f.label :subject_name %>
+  <br>
+  <%= f.text_field :subject_name %>
+  <br>
+  <%= f.label :front %>
+  <br>
+  <%= f.text_field :front %>
+  <br>
+  <%= f.label :back %>
+  <br>
+  <%= f.text_field :back %>
+  <br>
+  <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
 
-<%= collection_select(:subject_id, :name, Subject.all, :name, :name, {prompt: 'Select Subject'}) %>
 
-<br>
-<%= text_field_tag :name, "Or add a new subject", class: 'subject' %>
-<%= submit_tag "Submit Subject" %>
+<%= submit_tag "Submit Card" %>
 <% end %>
-<br>

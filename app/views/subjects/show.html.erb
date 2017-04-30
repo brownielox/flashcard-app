@@ -1,5 +1,4 @@
 
-<h3><%= @subject.name %></h3>
 _______________________________________________
 <br>
 <br>
@@ -12,8 +11,8 @@ _______________________________________________
 </ul>
 
 <ul>
-  <% @subject.cards.each do |front| %>
-    <li><%= card.front %></li>
+  <% @subject.cards.each do |c| %>
+    <li> <%= c.front %> </li>
   <% end %>
 </ul>
 

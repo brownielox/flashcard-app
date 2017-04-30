@@ -2,6 +2,8 @@ Rails.application.routes.draw do
   resources :cards
   resources :subjects
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  get '/login' => 'sessions#new'
+  post '/login' => 'sessions#create'
   get '/about', to: 'static#about'
   get '/cards/new', to: 'cards#new'
   get '/subjects/new', to: 'subjects#new'
