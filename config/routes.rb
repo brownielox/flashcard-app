@@ -9,6 +9,8 @@ Rails.application.routes.draw do
   get '/subjects/new', to: 'subjects#new'
   post '/subjects/new', to: 'subjects#new'
   post '/cards/new', to: 'cards#new'
+  get '/signup' => 'users#new'
+  post '/signup' => 'users#create'
 end
 
 

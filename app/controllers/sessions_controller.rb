@@ -1,18 +1,20 @@
 class SessionsController < ApplicationController
-  :has_secure_password
 
   def new
   end
 
   def create
-    return redirect_to(controller: 'sessions',
-                       action: 'new') if !params[:name] || params[:name].empty?
-    session[:name] = params[:name]
-    redirect_to controller: 'application', action: 'hello'
+    user = User.find_by(name: params[:user][:name])
+    if user.try(:authenticate, params[:user][:password])
+      session[:user_id] = user.id
+      redirect_to '/cards/new'
+    else
+      redirect_to '/login'
+    end
   end
 
   def destroy
-    session.delete :name
-    redirect_to controller: 'application', action: 'hello'
+    session.clear :user_id
+    redirect_to login_path
   end
 end

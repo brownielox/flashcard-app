@@ -1,9 +1,9 @@
 <h2>Login to Flash/Card!</h2>
+<%= form_for :user, url: '/login' do |f| %>
+  Username: <%= f.text_field :name %>
+  Password: <%= f.password_field :password %>
+  <%= f.submit "Submit" %>
+<% end %>
 <%= form_tag ({controller: 'sessions', action: 'create', method: 'post'}) do %>
-  <input name=name>
-  <input type=submit value='login'>
-  <br>
-  <br>
-  <input name=password>
-  <input type=submit value='password'>
+  New user? Make an account.
 <% end %>
