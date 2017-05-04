@@ -6,21 +6,21 @@ class CardsController < ApplicationController
   end
 
   def new
-    @card = Card.new
-  end
-
-  def show
-    @card = Card.find_by_id(params[:id])
+      @card = Card.new
   end
 
   def create
-    Card.create(post_params)
-    redirect_to cards_new_path
+      @card = Card.new(card_params)
+      if @card.save
+          redirect_to cards_new_path
+      else
+          redirect_to subjects_path
+      end
   end
 
   private
 
-  def post_params
+  def card_params
     params.require(:card).permit(:subject_name, :front, :back)
   end
 

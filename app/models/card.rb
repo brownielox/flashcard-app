@@ -1,6 +1,7 @@
 class Card < ActiveRecord::Base
   belongs_to :subject
-
+  belongs_to :user
+  
   attr_accessor :subject_name
 
   def subject_name=(name)

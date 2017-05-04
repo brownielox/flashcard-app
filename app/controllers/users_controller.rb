@@ -1,16 +1,28 @@
 class UsersController < ApplicationController
+
+  def index
+  end
+
   def new
+      @user = User.new
   end
 
   def create
-    @user = User.new(user_params)
-    if @user.save
-      session[:user_id] = @user.id
-      redirect_to subject_path(@user)
-    else
-      flash[:message] = @user.errors.full_messages.uniq.join(', ')
-      redirect_to '/signups'
-    end
+      @user = User.new(user_params)
+      if @user.save
+          session[:user_id] = @user.id
+          redirect_to subjects_path
+      else
+          redirect_to signup_path
+      end
+  end
+
+  def show
+      if current_user
+          redirect_to subjects_path
+      else
+          redirect_to signup_path
+      end
   end
 
   private
